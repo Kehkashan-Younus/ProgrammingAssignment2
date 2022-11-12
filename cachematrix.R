@@ -17,23 +17,17 @@ makeCacheMatrix <- function(x = matrix()) {
        getinverse = getinverse)
 }
 
-
-## Write a short comment describing this function
-## This is used to get Cache data
-
 cacheinverse <- function(x, ...) {       #gets cache data
   inv <- x$getinverse()
   if(!is.null(inv)) {                    # checking whether inv is NUll
     message("getting cached data")
-    return(inv)                          #returns inv value
+    return(inv)                         #returns inv value
   }
+  
   matrix_to_invert <- x$get()
-  inv <- solve(matrix_to_invert, ...)    #calculate inv value
+  inv <- solve(matrix_to_invert, ...)   #calculate inv value
   x$setinverse(inv)
   inv
 }                                       # returning matrix inv of x
-
-
-
 
 
